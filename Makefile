@@ -6,7 +6,9 @@ OBJ			=	$(SRC:.c=.o)
 
 NAME = pure
 
-CFLAGS			+=	-W -Wall -Wextra -Werror -I$(INC)
+LIBS = -lncurses
+
+CFLAGS			+=	-W -Wall -Wextra -Werror -I$(INC) $(LIBS)
 
 all: $(NAME)
 
