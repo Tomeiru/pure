@@ -1,0 +1,17 @@
+name: Continuous Integration
+on:
+  pull_request:
+    types:
+      - ready_for_review
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Check project format"
+        uses: jidicula/clang-format-action@v4.11.0
