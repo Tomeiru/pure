@@ -1,0 +1,17 @@
+name: Continuous Integration
+on:
+  pull_request:
+    types:
+      - ready_for_review
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Check build status"
+        run: make && make debug && make re && make fclean
